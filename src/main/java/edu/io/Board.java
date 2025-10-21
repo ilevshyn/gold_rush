@@ -1,7 +1,6 @@
 package edu.io;
 
-import edu.io.token.EmptyToken;
-import edu.io.token.Token;
+import edu.io.token.*;
 
 public class Board {
 
@@ -22,14 +21,19 @@ public class Board {
         return this.grid[row][col];
     }
 
-    public void placeToken(int row, int col, Token token) {
+    public void placeToken(int col, int row, Token token) {
         this.grid[row][col] = token;
     }
 
     public void display() {
         for (var row : this.grid) {
-            for (var cell : row) {
-                System.out.print(cell);
+            for (Token token : row) {
+                switch (token) {
+                    case PlayerToken pt -> System.out.print(Label.PLAYER_TOKEN_LABEL);
+                    case EmptyToken empty -> System.out.print(Label.EMPTY_TOKEN_LABEL);
+                    case GoldToken gt -> System.out.print(Label.GOLD_TOKEN_LABEL);
+                    default -> throw new IllegalStateException("Unexpected value: " + token);
+                }
             }
             System.out.println();
         }

@@ -25,30 +25,32 @@ public class PlayerToken extends Token {
                     throw new IllegalArgumentException("Cannot move outside of the board.");
                 }
                 this.pos = new Board.Coords(this.pos.row(), this.pos.col() - 1);
-                this.board.placeToken(tempRow, tempCol, new EmptyToken());
+                this.board.placeToken(this.pos.col(), this.pos.row(), this);
+                this.board.placeToken(tempCol, tempRow, new EmptyToken());
                 break;
             case RIGHT:
                 if (this.pos.col() == this.board.size() - 1) {
                     throw new IllegalArgumentException("Cannot move outside of the board.");
                 }
                 this.pos = new Board.Coords(this.pos.row(), this.pos.col() + 1);
-                this.board.placeToken(tempRow, tempCol, new EmptyToken());
+                this.board.placeToken(this.pos.col(), this.pos.row(), this);
+                this.board.placeToken(tempCol, tempRow, new EmptyToken());
                 break;
             case UP:
                 if (this.pos.row() == 0) {
                     throw new IllegalArgumentException("Cannot move outside of the board.");
                 }
                 this.pos = new Board.Coords(this.pos.row() - 1, this.pos.col());
-                this.board.placeToken(this.pos.row(), this.pos.col(), this);
-                this.board.placeToken(tempRow, tempCol, new EmptyToken());
+                this.board.placeToken(this.pos.col(), this.pos.row(), this);
+                this.board.placeToken(tempCol, tempRow, new EmptyToken());
                 break;
             case DOWN:
                 if (this.pos.row() == this.board.size() - 1) {
                     throw new IllegalArgumentException("Cannot move outside of the board.");
                 }
                 this.pos = new Board.Coords(this.pos.row() + 1, this.pos.col());
-                this.board.placeToken(this.pos.row(), this.pos.col(), this);
-                this.board.placeToken(tempRow, tempCol, new EmptyToken());
+                this.board.placeToken(this.pos.col(), this.pos.row(), this);
+                this.board.placeToken(tempCol, tempRow, new EmptyToken());
                 break;
             default:
                 break;
