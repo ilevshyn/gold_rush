@@ -9,7 +9,7 @@ public class Game {
     public void join(Player player) {
         this.player = player;
         this.board = new Board();
-        this.player.setPlayerToken(new PlayerToken(this.board));
+        this.player.assignToken(new PlayerToken(this.board));
     }
 
     public void start() {

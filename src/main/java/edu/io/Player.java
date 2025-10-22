@@ -11,10 +11,6 @@ public class Player {
     public Player() {
     }
 
-    public void setPlayerToken(PlayerToken playerToken) {
-        this.playerToken = playerToken;
-    }
-
     public void assignToken(PlayerToken token) {
         this.playerToken = token;
     }
