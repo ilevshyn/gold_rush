@@ -23,41 +23,48 @@ public class PlayerToken extends Token {
         this.pos = new Board.Coords(4, 4);
     }
 
+    private void ensureInBounds (int row, int col){
+        int n = this.board.size();
+        if (row < 0 || col < 0 || row >= n || col >= n) {
+            throw new IllegalArgumentException("Cannot move outside of the board");
+        }
+    }
 
     public void move(Move dir) {
-        int tempCol = this.pos.col();
-        int tempRow = this.pos.row();
+        final int tempCol = this.pos.col();
+        final int tempRow = this.pos.row();
+
+        int calcRow = 0;
+        int calcCol = 0;
+
         switch (dir) {
-            case LEFT:
-                if (this.pos.col() == 0) {
-                    throw new IllegalArgumentException("Cannot move outside of the board.");
-                }
-                this.pos = new Board.Coords(this.pos.row(), this.pos.col() - 1);
-                break;
-            case RIGHT:
-                if (this.pos.col() == this.board.size() - 1) {
-                    throw new IllegalArgumentException("Cannot move outside of the board.");
-                }
-                this.pos = new Board.Coords(this.pos.row(), this.pos.col() + 1);
-                break;
             case UP:
-                if (this.pos.row() == 0) {
-                    throw new IllegalArgumentException("Cannot move outside of the board.");
-                }
-                this.pos = new Board.Coords(this.pos.row() - 1, this.pos.col());
+                calcRow = -1;
                 break;
             case DOWN:
-                if (this.pos.row() == this.board.size() - 1) {
-                    throw new IllegalArgumentException("Cannot move outside of the board.");
-                }
-                this.pos = new Board.Coords(this.pos.row() + 1, this.pos.col());
+                calcRow = 1;
+                break;
+            case LEFT:
+                calcCol = -1;
+                break;
+            case RIGHT:
+                calcCol = 1;
                 break;
             default:
-                break;
+                throw new IllegalArgumentException("Invalid move direction");
         }
-        this.board.placeToken(this.pos.col(), this.pos.row(), this);
-        this.board.placeToken(tempCol, tempRow, new EmptyToken());
-        player.interactWithToken(board.peekToken(this.pos.col(), this.pos.row()));
+
+        final int finalRow = tempRow + calcRow;
+        final int finalCol = tempCol + calcCol;
+
+        ensureInBounds(finalRow, finalCol);
+
+        var targetToken = board.peekToken(finalCol, finalRow);
+        player.interactWithToken(targetToken);
+
+        board.placeToken(finalCol, finalRow, this);
+        board.placeToken(tempCol, tempRow, new EmptyToken());
+        this.pos = new Board.Coords(finalRow, finalCol);
     }
 
 

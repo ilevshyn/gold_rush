@@ -6,7 +6,7 @@ public class Player {
     public final Gold gold = new Gold();
     private PlayerToken playerToken;
     private Token pickaxeToken = new EmptyToken();
-    private Shed shed;
+    private final Shed shed;
 
     public Player() {
         this.shed = new Shed();

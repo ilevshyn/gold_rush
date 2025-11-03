@@ -66,6 +66,9 @@ public class PickaxeToken extends Token implements Tool, Repairable {
 
     @Override
     public Tool ifBroken(Runnable runnable) {
+        if (this.isBroken()) {
+            runnable.run();
+        }
         return this;
     }
 
