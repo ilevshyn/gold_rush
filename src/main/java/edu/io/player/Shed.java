@@ -3,7 +3,7 @@ package edu.io.player;
 import java.util.Stack;
 
 public class Shed {
-    private Stack<Tool> tools;
+    private final Stack<Tool> tools;
 
     public boolean isEmpty(){
         return tools.isEmpty();
@@ -21,10 +21,6 @@ public class Shed {
             return new NoTool();
         }
         return tools.pop();
-    }
-
-    public void dropTool(Tool value){
-        tools.push(value);
     }
 
     public void dropTool(){
