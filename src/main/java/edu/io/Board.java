@@ -1,6 +1,7 @@
 package edu.io;
 
 import edu.io.token.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
@@ -26,7 +27,10 @@ public class Board {
     }
 
 
-    public void placeToken(int col, int row, Token token) {
+    public void placeToken(int col, int row, @NotNull Token token) {
+        if (token == null) {
+            throw new NullPointerException("token is null");
+        }
         this.grid[row][col] = token;
     }
 
