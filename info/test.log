@@ -1,13 +1,52 @@
-2025.11.04 01:03:48
+2025.11.18 11:41:45
 
 > Task :clean
-> Task :compileJava
-> Task :processResources NO-SOURCE
-> Task :classes
-> Task :compileTestJava
-> Task :processTestResources NO-SOURCE
-> Task :testClasses
-> Task :test
 
-BUILD SUCCESSFUL in 1s
-4 actionable tasks: 4 executed
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///home/olek/Projekty/zajecia/io/gold_rush_test_students/build/reports/problems/problems-report.html
+2 actionable tasks: 2 executed/home/olek/Dokumenty/Uczelnia/Zajecia/io/2025_26/repos/1/Levshyn_Ivan/src/main/java/edu/io/player/Player.java:76: error: unnamed variables are a preview feature and are disabled by default.
+            case AnvilToken _:
+                            ^
+  (use --enable-preview to enable unnamed variables)
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  /home/olek/Dokumenty/Uczelnia/Zajecia/io/2025_26/repos/1/Levshyn_Ivan/src/main/java/edu/io/player/Player.java:76: error: unnamed variables are a preview feature and are disabled by default.
+              case AnvilToken _:
+                              ^
+    (use --enable-preview to enable unnamed variables)
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 577ms
+[STDERR]
+/home/olek/Dokumenty/Uczelnia/Zajecia/io/2025_26/repos/1/Levshyn_Ivan/src/main/java/edu/io/player/Player.java:76: error: unnamed variables are a preview feature and are disabled by default.
+            case AnvilToken _:
+                            ^
+  (use --enable-preview to enable unnamed variables)
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  /home/olek/Dokumenty/Uczelnia/Zajecia/io/2025_26/repos/1/Levshyn_Ivan/src/main/java/edu/io/player/Player.java:76: error: unnamed variables are a preview feature and are disabled by default.
+              case AnvilToken _:
+                              ^
+    (use --enable-preview to enable unnamed variables)
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 577ms
