@@ -73,7 +73,7 @@ public class Player {
                 }
                 //vitals.dehydrate(VitalsValues.DEHYDRATION_MOVE);
                 break;
-            case AnvilToken _:
+            case AnvilToken anvilToken:
                 if (this.pickaxeToken instanceof PickaxeToken pt) {
                     pt.repair();
                 }
